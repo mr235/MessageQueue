@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="11111111111"
+        android:layout_height="wrap_content"/>
+
+    <com.mr235.messagequeue.StrokeTextView
+        android:id="@+id/stv_count"
+        android:layout_width="wrap_content"
+        android:text="X36"
+        android:layout_marginLeft="12dp"
+        android:textSize="22sp"
+        app:textStrokeSize="3dp"
+        android:textColor="#00ff00"
+        app:textStrokeColor="@android:color/holo_red_light"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
