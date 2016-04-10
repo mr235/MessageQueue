@@ -55,40 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		findViewById(R.id.tv).startAnimation(animation);
 
 
-		findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				final TextView textView = new TextView(getApplicationContext());
-				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-				lp.setMargins(30, 30, 30, 30);
-				textView.setLayoutParams(lp);
-				textView.setText("2");
-				textView.setTextColor(Color.RED);
-//			if (linearLayout.getChildCount()==2) {
-//				linearLayout.removeViewAt(0);
-//			}
-				linearLayout.addView(textView);
-				final Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
-				animation2.setAnimationListener(new Animation.AnimationListener() {
-					@Override
-					public void onAnimationStart(Animation animation) {
+		findViewById(R.id.bt).setOnClickListener(this);
 
-					}
-
-					@Override
-					public void onAnimationEnd(Animation animation) {
-					}
-
-					@Override
-					public void onAnimationRepeat(Animation animation) {
-
-					}
-				});
-				textView.startAnimation(animation2);
-			}
-		});
-
-		generateMessage();
+		//generateMessage();
 		handleMessage();
 	}
 
@@ -178,33 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.bt:
-				final TextView textView = new TextView(getApplicationContext());
-				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-				lp.setMargins(30, 30, 30, 30);
-				textView.setLayoutParams(lp);
-				textView.setText("2");
-				textView.setTextColor(Color.RED);
-//			if (linearLayout.getChildCount()==2) {
-//				linearLayout.removeViewAt(0);
-//			}
-				linearLayout.addView(textView);
-				final Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
-				animation2.setAnimationListener(new Animation.AnimationListener() {
-					@Override
-					public void onAnimationStart(Animation animation) {
-
-					}
-
-					@Override
-					public void onAnimationEnd(Animation animation) {
-					}
-
-					@Override
-					public void onAnimationRepeat(Animation animation) {
-
-					}
-				});
-				textView.startAnimation(animation2);
+				Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
+				findViewById(R.id.tv).startAnimation(animation);
 				break;
 		}
 	}
