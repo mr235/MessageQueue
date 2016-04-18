@@ -1,17 +1,15 @@
 package com.mr235.messagequeue;
 
-import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -147,9 +145,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.bt:
-				Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
-				findViewById(R.id.tv).startAnimation(animation);
+//				Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
+//				findViewById(R.id.tv).startAnimation(animation);
+
+
+				continueSendAnim = new AnimationSet(true);
+				scaleAnimation = new ScaleAnimation(3.0f, 1.0f, 3.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+				continueSendAnim.addAnimation(scaleAnimation);
+				continueSendAnim.addAnimation(new AlphaAnimation(0.0f, 1.0f));
+				continueSendAnim.setInterpolator(new ElasticInterpolator(EasingType.Type.OUT));
+				continueSendAnim.setDuration(900);
+				continueSendAnim.setFillAfter(true);
+
+				findViewById(R.id.tv).startAnimation(continueSendAnim);
+
 				break;
 		}
 	}
+
+
+	private ScaleAnimation scaleAnimation;
+	private AnimationSet continueSendAnim;// continueSendAnim
 }
